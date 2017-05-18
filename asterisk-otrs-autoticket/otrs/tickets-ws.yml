@@ -1,0 +1,42 @@
+---
+Debugger:
+  DebugThreshold: error
+  TestMode: '0'
+Description: ''
+FrameworkVersion: 5.0.18
+Provider:
+  Operation:
+    TicketCreate:
+      Description: ''
+      MappingInbound:
+        Type: Simple
+      MappingOutbound:
+        Type: Simple
+      Type: Ticket::TicketCreate
+  Transport:
+    Config:
+      KeepAlive: '1'
+      MaxLength: '20000000'
+      RouteOperationMapping:
+        TicketCreate:
+          RequestMethod:
+          - POST
+          Route: /TicketCreate/
+        TicketGet:
+          RequestMethod:
+          - GET
+          - POST
+          Route: /TicketGet/:TicketID
+        TicketSearch:
+          RequestMethod:
+          - POST
+          Route: /TicketSearch/
+        TicketUpdate:
+          RequestMethod:
+          - POST
+          Route: /TicketUpdate/:TicketID
+    Type: HTTP::REST
+RemoteSystem: ''
+Requester:
+  Transport:
+    Type: ''
